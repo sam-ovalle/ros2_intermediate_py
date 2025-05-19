@@ -12,6 +12,7 @@ class DummyLaser(Node):
     def __init__(self):
         super().__init__('DummyLaser')
         self.count = 0
+
         self.publisher = self.create_publisher(LaserScan, '/dummy_scan', 10)
         self.timer = self.create_timer(1.0, self.callback)
 
@@ -21,7 +22,8 @@ class DummyLaser(Node):
         msg = LaserScan()
         msg.ranges = [data, data2]
         self.get_logger().info('Publishing: '+str((msg.ranges)))
-        self.publisher.publish(msg)
+        # We comment this and there fore noone will be publishing in the **/dummy_scan topic**
+        # self.publisher.publish(msg)
         self.count += 1
 
 
