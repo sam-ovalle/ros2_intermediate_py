@@ -23,7 +23,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'exercise41 = exercise41_pkg.exercise41:main'
+            'exercise41 = exercise41_pkg.exercise41:main',
+            'exercise42 = exercise41_pkg.exercise42:main',
         ],
     },
 )
