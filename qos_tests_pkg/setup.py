@@ -28,7 +28,9 @@ setup(
             'subscriber_durability_exe = qos_tests_pkg.subscriber_durability:main',
             'publisher_durability_exe = qos_tests_pkg.publisher_durability:main',
             'subscriber_deadline_exe = qos_tests_pkg.subscriber_deadline:main',
-            'publisher_deadline_exe = qos_tests_pkg.publisher_deadline:main'
+            'publisher_deadline_exe = qos_tests_pkg.publisher_deadline:main',
+            'subscriber_lifespan_exe = qos_tests_pkg.subscriber_lifespan:main',
+            'publisher_lifespan_exe = qos_tests_pkg.publisher_lifespan:main',
         ],
     },
 )
