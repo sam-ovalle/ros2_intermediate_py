@@ -22,7 +22,7 @@ class PublisherDDS(Node):
         self.current_time_s = 0
         self.current_time_ns = 0
         # define the timer period for 0.5 seconds
-        timer_period = 0.05
+        timer_period = 0.0
         # create a timer sending two parameters:
         # - the duration between two Callbacks (0.5 seconds)
         # - the timer function (timer_callback)
