@@ -23,7 +23,8 @@ setup(
     entry_points={
         'console_scripts': [
             'multithreading_movement_server = multithreading_ros2_examples.multithreading_movement_server:main',
-             'multithreading_movement_server_parallel = multithreading_ros2_examples.multithreading_movement_server_parallel:main',
+            'multithreading_movement_server_parallel = multithreading_ros2_examples.multithreading_movement_server_parallel:main',
+            'multithreading_movement_server_and_calculation_server = multithreading_ros2_examples.multithreading_movement_server_and_calculation_server:main',
         ],
     },
 )
