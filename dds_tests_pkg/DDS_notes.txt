@@ -1,0 +1,38 @@
+Fast DDS vs Cyclone DDS
+-----------------------
+https://www.eprosima.com/developer-resources/performance/fast-dds-vs-cyclone-dds-performance
+
+- FastDDS gives access to extra QoS profiles CycloneDDS doesnt have
+- FastDDS does not support incompatible QoS events, cyclone does
+- CycloneDDS works better with navigation, moveit, rmf
+
+
+Security
+--------
+https://www.youtube.com/watch?v=UJa4XWRA6EY
+
+installations
+-------------
+sudo apt update
+# Installed when you install ROS2
+sudo apt install ros-humble-rmw-fastrtps-cpp
+# Installed when you install ROS2
+sudo apt install ros-humble-rmw-cyclonedds-cpp
+# You will probably have to install it 
+# Be aware that it is a 30-day trial, and you cannot use it for commercial purposes
+sudo apt install ros-humble-rmw-connextdds
+
+change DDS in system
+--------------------
+# FastDDS
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+# CycloneDDS
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+# ContextDDS
+export RMW_IMPLEMENTATION=rmw_connextdds
+
+Execute a DDS node
+------------------
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+ros2 run <your_package> <your application>
+
