@@ -36,3 +36,42 @@ Execute a DDS node
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 ros2 run <your_package> <your application>
 
+verify DDS middleware in ROS2 Daemon
+------------------------------------
+ps faux | grep "rmw-implementation"
+
+should be -> user       6819 29.0  0.1 675136 47252 pts/0    Sl   10:40   0:00 /usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 0 --rmw-implementation rmw_cyclonedds_cpp
+
+else
+->
+ros2 daemon stop
+ros2 daemon start
+
+*test Daemon*
+ps faux | grep "ros2_daemon"
+ros2 daemon stop
+ros2 daemon status
+*running any command that needs the ROS2 daemon starts it automatically*
+i.e. -> ros2 topic list
+else -> ros2 daemon start
+
+extra resources:
+----------------
+https://www.dds-foundation.org/what-is-dds-3/
+https://www.eclipse.org/community/eclipse_newsletter/2021/january/2.php?utm_campaign=Community%20Newsletter&utm_content=153039749&utm_medium=social&utm_source=linkedin&hss_channel=lcp-34093
+https://www.eclipse.org/community/eclipse_newsletter/2019/december/4.php
+https://iceoryx.io/v1.0.1/getting-started/what-is-iceoryx/
+https://www.eclipse.org/community/eclipse_newsletter/2021/january/2.php?utm_campaign=Community%20Newsletter&utm_content=153039749&utm_medium=social&utm_source=linkedin&hss_channel=lcp-34093
+https://zenoh.io/
+https://www.eclipse.org/community/eclipse_newsletter/2020/september/1.php
+https://zenoh.io/blog/2021-04-28-ros2-integration/
+https://github.com/eclipse-zenoh/zenoh-plugin-dds
+https://www.youtube.com/watch?v=k7ogOKzgRFw
+https://docs.ros.org/en/foxy/How-To-Guides/Working-with-multiple-RMW-implementations.html
+https://www.eprosima.com/middleware/fast-dds
+https://www.eprosima.com/news/fast-dds-performance-benchmark
+https://github.com/ros2/rmw_connextdds
+https://www.rti.com/products/connext-micro
+https://www.eclipse.org/community/eclipse_newsletter/2019/december/4.php
+https://www.eclipse.org/community/eclipse_newsletter/2021/january/2.php?utm_campaign=Community%20Newsletter&utm_content=153039749&utm_medium=social&utm_source=linkedin&hss_channel=lcp-34093
+https://robotics.stackexchange.com/questions/92278/what-is-ros2-daemon
