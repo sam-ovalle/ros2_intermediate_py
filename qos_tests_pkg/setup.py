@@ -31,6 +31,8 @@ setup(
             'publisher_deadline_exe = qos_tests_pkg.publisher_deadline:main',
             'subscriber_lifespan_exe = qos_tests_pkg.subscriber_lifespan:main',
             'publisher_lifespan_exe = qos_tests_pkg.publisher_lifespan:main',
+            'publisher_liveliness_exe = qos_tests_pkg.publisher_liveliness:main',
+            'subscriber_liveliness_exe = qos_tests_pkg.subscriber_liveliness:main',
         ],
     },
 )
