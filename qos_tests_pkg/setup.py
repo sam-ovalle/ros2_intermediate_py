@@ -24,7 +24,9 @@ setup(
         'console_scripts': [
             'publisher_custom_minimal_qos_exe = qos_tests_pkg.publisher_custom_minimal_qos:main',
             'subscriber_custom_minimal_qos_exe = qos_tests_pkg.subscriber_custom_minimal_qos:main',          
-            'subscriber_scan_qos_exe = qos_tests_pkg.subscriber_scan_qos:main'
+            'subscriber_scan_qos_exe = qos_tests_pkg.subscriber_scan_qos:main',
+            'subscriber_durability_exe = qos_tests_pkg.subscriber_durability:main',
+            'publisher_durability_exe = qos_tests_pkg.publisher_durability:main',
         ],
     },
 )
