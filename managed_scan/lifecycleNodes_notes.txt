@@ -1,0 +1,57 @@
+Why use managed nodes?
+----------------------
+    Better coordination of nodes needed:
+        map server must launch before localization
+    restarting or pausing systems without having to kill and relaunch
+
+*Not fully developed*
+    See widespread use in Nav2 and MoveIt2
+
+What is a managed node?
+-----------------------
+    Provides states:
+        - unconfigured *on start*
+        - inactive
+        - active
+        - finalized
+    An external node usually manages switching states
+        Can be done manually on the command line 
+**ONLY AVAILABLE FOR C++, NOT PYTHON**
+
+Dependencies of lifecycle applications
+--------------------------------------
+    - lifecycle_msgs
+    - rclcpp_lifecycle
+    - std_msgs
+
+Observations
+------------
+    Managed nodes have the topic:
+        <your_node_name>/transition_event
+    Upon launching the managed node, 
+        there is no /managed_scan topic 
+        since its not in an active state
+
+Helpful terminal commands
+-------------------------
+ros2 service list -> view managed_scan_node/ topics
+ros2 service call /managed_scan_node/get_state lifecycle_msgs/srv/GetState {}
+    Simplified: |=> ros2 lifecycle get /managed_scan_node
+ros2 service call /managed_scan_node/change_state lifecycle_msgs/ChangeState "{transition: {id: 1}}"
+    Simplified: |=> ros2 lifecycle set /managed_scan_node configure
+ros2 lifecycle list managed_scan_node -a
+ros2 topic echo /managed_scan
+ros2 lifecycle set /managed_scan_node shutdown
+    The node is now stopped but not dead yet
+        You cannot do anything with it but let it die from this finalized state
+
+Deactivate the node and reactivate it
+-------------------------------------
+1.) bring the node to inactive state
+2.) -> unconfigured state (on_cleanup function)
+3.) -> back to inactive state
+4.) -> finally to active state
+
+Lifecycle Manager
+-----------------
+    program that handles state transitions automatically
